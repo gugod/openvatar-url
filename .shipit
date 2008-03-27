@@ -1,0 +1,6 @@
+steps = FindVersion, ChangeVersion, CheckChangeLog, DistTest, Commit, Tag, MakeDist, UploadCPAN
+
+svk.tagpattern = //mirror/handlino-pub/perl5/Openvatar-URL/tags/release-%v
+
+CheckChangeLog.files = Changes
+

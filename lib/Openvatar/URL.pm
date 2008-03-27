@@ -10,7 +10,7 @@ use Exporter;
 BEGIN {
     our @ISA    = qw(Exporter);
     our @EXPORT = qw( openvatar_id openvatar_url );
-    our $VERSION = '0.01';
+    our $VERSION = '0.0.1';
 }
 
 my $base = 'http://www.openvatar.com/avatar.php';
@@ -59,7 +59,7 @@ __END__
 
 =head1 NAME
 
-Openvatar::URL - [One line description of module's purpose here]
+Openvatar::URL - Make URLs for Openvatars from an OpenID
 
 
 =head1 VERSION
@@ -71,35 +71,52 @@ This document describes Openvatar::URL version 0.0.1
 
     use Openvatar::URL;
 
+    my $openvatar_id = openvatar_id($open_id);
+
+    my $openvatar_url = openvatar_url(open_id => $open_id);
 
 =head1 DESCRIPTION
 
+Openvatar is your Openid avatar image (80x80). Your avatar appear
+beside your name when you participate (comments or other contents) on
+Openvatar enabled sites. This service is provided by http://www.openvatar.com/.
 
 =head1 INTERFACE 
 
+=over
+
+=item openvatar_url(open_id => $open_id, %options)
+
+Constructs a URL to fetch openvatar for given C<$open_id> or C<$id>.
+
+C<$id> is a openvatar id, see L</openvatar_id> for mor information
+
+C<%options> are optional and are...
 
 =over
 
-=item new()
+=item size
+
+Specifies the wanted width and height of the openvatar. It's always a
+squre image.
+
+Valid values are from 1 to 80 inclusive.
+
+    size => 40, # 40x40 image
+
+=item default
+
+The url to use if the given id has no openvatar.
+
+    default => "http://upload.wikimedia.org/wikipedia/en/8/89/Alfred.jpg"
 
 =back
 
-=head1 DIAGNOSTICS
+=item openvatar_id($open_id)
 
-=over
-
-=item C<< Error message here, perhaps with %s placeholders >>
-
-[Description of error here]
-
-=item C<< Another error message here >>
-
-[Description of error here]
-
-[Et cetera, et cetera]
+Converts an C<$open_id> into its Openvatar C<%id>.
 
 =back
-
 
 =head1 CONFIGURATION AND ENVIRONMENT
 
@@ -121,6 +138,11 @@ Please report any bugs or feature requests to
 C<bug-openvatar-url@rt.cpan.org>, or through the web interface at
 L<http://rt.cpan.org>.
 
+=head1 SEE ALSO
+
+L<Gravatar::URL> - Another global avatar perl module.
+
+L<http://www.openvatar.com/> - The actual service provider.
 
 =head1 AUTHOR
 
@@ -129,11 +151,10 @@ Kang-min Liu  C<< <gugod@gugod.org> >>
 
 =head1 LICENCE AND COPYRIGHT
 
-Copyright (c) 2008, Kang-min Liu C<< <gugod@gugod.org> >>. All rights reserved.
+Copyright (c) 2008, Kang-min Liu C<< <gugod@gugod.org> >>.
 
 This module is free software; you can redistribute it and/or
 modify it under the same terms as Perl itself. See L<perlartistic>.
-
 
 =head1 DISCLAIMER OF WARRANTY
 

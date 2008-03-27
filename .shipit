@@ -1,4 +1,8 @@
-steps = FindVersion, ChangeVersion, CheckChangeLog, DistTest, Commit, Tag, MakeDist, UploadCPAN
+steps = FindVersion, ChangeVersion, CheckChangeLog, DistTest, Commit, Tag, MakeDist, UploadCPAN, Twitter
+
+twitter.config = /Users/gugod/.twitterrc
+twitter.distname = Openvatar-URL
+twitter.message = shipped %d %v - soon at %u
 
 svk.tagpattern = //mirror/handlino-pub/perl5/Openvatar-URL/tags/release-%v
 

@@ -10,7 +10,7 @@ use Exporter;
 BEGIN {
     our @ISA    = qw(Exporter);
     our @EXPORT = qw( openvatar_id openvatar_url );
-    our $VERSION = '0.0.1';
+    our $VERSION = '0.0.2';
 }
 
 my $base = 'http://www.openvatar.com/avatar.php';
